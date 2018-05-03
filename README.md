@@ -2,9 +2,13 @@
 
 __Download BAM sections from TCGA__
 
+This script can be used to download BAM file segments from the TCGA repository. Either a gene name, gene list, coordinate, or coordinate list can be specified. Single sample UUID or a sample shhet downloaded from the GDC repository can be specified.
+
+
 #### __Dependencies:__
 
-Downloading is performed using curl
+* Downloading is performed using curl
+* samtools (for indexing BAM files)
 
 
 #### __Usage__
@@ -32,7 +36,7 @@ Downloading is performed using curl
 
 #### Examples
 
-  * Downloading specific gene
+  * Downloading a specific gene [one gene only]
   ```
 ./TCGA_splice_bam.sh -t token_file.txt \
                       -u 056b2c6b-fab6-42ff-ae28-96db4fb56ea6 \
@@ -40,21 +44,21 @@ Downloading is performed using curl
                       -d TP53_RNA/
   ```
       
-  * Downloading based on coordinate
+  * Downloading based on a coordinate  [one coordinate only]
 ```
 ./TCGA_splice_bam.sh -t token_file.txt \
                       -u 056b2c6b-fab6-42ff-ae28-96db4fb56ea6 \
                       -c chr17:7666402-7689550 -d TP53_RNA/ \
                       -d TP53_RNA/
 ```   
-  * Downloading gene list
+  * Downloading a gene list
 ```
 ./TCGA_splice_bam.sh -t token_file.txt \
                       -u 056b2c6b-fab6-42ff-ae28-96db4fb56ea6 \
                       -g gene_list.txt \
                       -d TP53_RNA/
 ```   
-  * Downloading coordinate list
+  * Downloading a coordinate list
 ```
 ./TCGA_splice_bam.sh -t token_file.txt \
                       -u 056b2c6b-fab6-42ff-ae28-96db4fb56ea6 \
